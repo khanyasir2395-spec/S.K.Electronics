@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SK Pro Speakers | Wholesale Audio Brand</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="top">
+    <h1>SK Pro Professional Speakers</h1>
+    <p>In-house Brand by SK Electronics Kolkata • Wholesale Supply</p>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="skpro-container">
+
+    <!-- INTRO -->
+    <section class="skpro-intro">
+      <h2>About SK Pro</h2>
+      <p>
+        SK Pro is our in-house professional speaker brand developed for DJs,
+        sound professionals, and audio business owners. These speakers are
+        designed for continuous professional use with a focus on power,
+        durability, and value.
+      </p>
+      <p>
+        SK Pro products are supplied for business and resale purposes and are
+        trusted by professionals who require reliable performance.
+      </p>
+    </section>
+
+    <!-- WHO IT IS FOR -->
+    <section class="skpro-for">
+      <h2>Who SK Pro Is For</h2>
+      <ul>
+        <li>✔ DJs starting or expanding their sound business</li>
+        <li>✔ Sound system owners</li>
+        <li>✔ Audio equipment resellers & dealers</li>
+        <li>✖ Not for tent house or one-day party rental setups</li>
+      </ul>
+    </section>
+
+    <!-- WHOLESALE NOTICE -->
+    <section class="skpro-notice">
+      <strong>Wholesale Only:</strong>
+      SK Pro speakers are available for bulk and wholesale orders only.
+      Pricing and models are shared directly with serious business buyers.
+    </section>
+
+    <!-- CTA -->
+    <section class="skpro-cta">
+      <h2>Interested in SK Pro Speakers?</h2>
+      <p>
+        Contact us to discuss models, specifications, and wholesale pricing.
+      </p>
+
+      <a
+        href="https://wa.me/918052546602?text=Hello%20SK%20Electronics%20Kolkata,%20I%20want%20to%20enquire%20about%20SK%20Pro%20wholesale%20speakers."
+        target="_blank"
+        class="skpro-btn">
+        Enquire for Wholesale
+      </a>
+    </section>
+<!-- SK PRO MODELS -->
+<section class="skpro-models">
+  <h2>SK Pro Speaker Range</h2>
+  <p class="models-subtext">
+    Professional-grade speakers designed for continuous business use.
+  </p>
+
+  <div class="model-grid">
+
+    <div class="model-card">
+      <h3>SK Pro 600</h3>
+      <p><strong>Power:</strong> 600W</p>
+      <p><strong>Application:</strong> DJ, indoor events</p>
+      <p class="note">Wholesale supply only</p>
+    </div>
+
+    <div class="model-card">
+      <h3>SK Pro 1000</h3>
+      <p><strong>Power:</strong> 1000W</p>
+      <p><strong>Application:</strong> DJ, weddings, medium venues</p>
+      <p class="note">Wholesale supply only</p>
+    </div>
+
+    <div class="model-card">
+      <h3>SK Pro 1500</h3>
+      <p><strong>Power:</strong> 1500W</p>
+      <p><strong>Application:</strong> Large events, outdoor setups</p>
+      <p class="note">Wholesale supply only</p>
+    </div>
+
+  </div>
+</section>
+<!-- SK PRO WHOLESALE BUILDER -->
+<section class="skpro-builder">
+  <h2>Build Your Wholesale Order</h2>
+  <p class="builder-subtext">
+    Select SK Pro speaker model and quantity to send a wholesale enquiry.
+  </p>
+
+  <label>Speaker Model</label>
+  <select id="skpro-model">
+    <option value="">Select Model</option>
+    <option value="SK Pro 600">SK Pro 600 (600W)</option>
+    <option value="SK Pro 1000">SK Pro 1000 (1000W)</option>
+    <option value="SK Pro 1500">SK Pro 1500 (1500W)</option>
+  </select>
+
+  <label>Quantity</label>
+  <input type="number" id="skpro-qty" value="1" min="1">
+
+  <button onclick="addSKProOrder()">Add to Order</button>
+
+  <!-- SUMMARY -->
+  <div class="skpro-summary">
+    <h3>Order Summary</h3>
+    <ul id="skpro-list"></ul>
+
+    <button onclick="sendSKProWhatsApp()">Send Wholesale Enquiry</button>
+  </div>
+</section>
+
+  </main>
+<script src="script.js"></script>
+</body>
+</html>

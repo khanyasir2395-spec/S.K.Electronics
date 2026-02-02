@@ -114,3 +114,67 @@ function sendWhatsApp() {
   const phone = "8052546602"; // replace
   window.open(`https://wa.me/${phone}?text=${msg}`, "_blank");
 }
+
+
+/* ===== SK PRO WHOLESALE LOGIC ===== */
+
+let skproCart = [];
+
+function addSKProOrder() {
+  const model = document.getElementById("skpro-model").value;
+  const qty = document.getElementById("skpro-qty").value;
+
+  if (!model || qty < 1) {
+    alert("Please select model and quantity");
+    return;
+  }
+
+  skproCart.push(`${model} × ${qty}`);
+  updateSKProSummary();
+}
+
+function updateSKProSummary() {
+  const list = document.getElementById("skpro-list");
+  list.innerHTML = "";
+
+  skproCart.forEach(item => {
+    const li = document.createElement("li");
+    li.innerText = item;
+    list.appendChild(li);
+  });
+}
+
+function sendSKProWhatsApp() {
+  if (skproCart.length === 0) {
+    alert("No items added");
+    return;
+  }
+
+  let message = "Hello SK Electronics Kolkata,%0A%0AWholesale enquiry for SK Pro speakers:%0A";
+
+  skproCart.forEach(item => {
+    message += item + "%0A";
+  });
+
+  message += "%0APlease share wholesale pricing and availability.";
+
+  const phone = "918052546602"; // replace number
+  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+}
+function showLang(lang, btn) {
+  // hide all language texts
+  document.querySelectorAll(".about-text").forEach(el => {
+    el.style.display = "none";
+  });
+
+  // remove active class from all buttons
+  document.querySelectorAll(".lang-switch button").forEach(b => {
+    b.classList.remove("active");
+  });
+
+  // show selected language
+  document.querySelector(".about-text." + lang).style.display = "block";
+
+  // activate clicked button
+  btn.classList.add("active");
+}
