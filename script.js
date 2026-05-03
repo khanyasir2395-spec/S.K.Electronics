@@ -178,30 +178,136 @@ function showLang(lang, btn) {
   // activate clicked button
   btn.classList.add("active");
 }
-function toggleMenu() {
-  const menu = document.getElementById("mobileMenu");
-  menu.classList.toggle("show");
+/* ===== SLIDER ===== */
+
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    dots[i].classList.remove("active");
+  });
+
+  slides[index].classList.add("active");
+  dots[index].classList.add("active");
 }
-window.addEventListener("scroll", () => {
-  const btn = document.getElementById("backToTop");
-  btn.style.display = window.scrollY > 400 ? "block" : "none";
-});
 
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-function toggleMenu() {
-  document.getElementById("mobileMenu")
-    .classList.toggle("active");
+function autoSlide() {
+  slideIndex++;
+  if (slideIndex >= slides.length) slideIndex = 0;
+  showSlide(slideIndex);
 }
 
+setInterval(autoSlide, 3000);
 
-const btn = document.querySelector('.back-to-top');
+/* ===== DJ SETUP POPUP ===== */
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 400) {
-    btn.style.display = 'block';
-  } else {
-    btn.style.display = 'none';
+/* ===== POPUP FIXED ===== */
+
+function openSetup(id) {
+  const popup = document.getElementById("setupPopup");
+  const title = document.getElementById("popupTitle");
+  const container = document.getElementById("popupOptions");
+
+  let options = [];
+
+  if (id === 1) {
+    title.innerText = "Starter Setup (₹80K–1L)";
+    options = [
+      {
+        img:"images/p1.jpg",
+        price:"₹80,000",
+        details:"2x 500W Speakers, 1 Amplifier, Basic Mixer, 2 Mic",
+      },
+      {
+        img:"images/p2.jpg",
+        price:"₹95,000",
+        details:"2x 600W Speakers, Better Amp, Mixer + Mic Set",
+      }
+    ];
   }
-});
+
+  if (id === 2) {
+    title.innerText = "Basic Pro Setup (₹1L–2L)";
+    options = [
+      {
+        img:"images/p1.jpg",
+        price:"₹1,20,000",
+        details:"2x 1000W Speakers, High Power Amp, Mixer",
+      },
+      {
+        img:"images/p2.jpg",
+        price:"₹1,80,000",
+        details:"3 Speaker Setup, Pro Mixer, Wireless Mic",
+      }
+    ];
+  }
+  if (id === 3) {
+    title.innerText = "Advanced DJ Speakers (₹2L–3.8L)";
+    options = [
+      {
+        img:"images/p1.jpg",
+        price:"₹2,00,000",
+        details:"2x 1000W Speakers, High Power Amp, Mixer",
+      },
+      {
+        img:"images/p2.jpg",
+        price:"₹1,80,000",
+        details:"3 Speaker Setup, Pro Mixer, Wireless Mic",
+      }
+    ];
+  }
+
+  container.innerHTML = "";
+
+  options.forEach(opt => {
+    container.innerHTML += `
+      <div class="option-card">
+        <div class="img-box">
+          <img src="${opt.img}">
+          <button class="view-btn" onclick="showDetails('${opt.details}','${opt.price}')">
+            View Details
+          </button>
+        </div>
+
+        <div class="option-content">
+          <h4>${opt.price}</h4>
+
+          <a href="https://wa.me/918052546602?text=I want DJ setup ${opt.price}" 
+             target="_blank" class="option-btn">
+             Enquire Now
+          </a>
+        </div>
+      </div>
+    `;
+  });
+
+  popup.style.display = "block";
+}
+
+/* CLOSE BUTTON */
+function closePopup() {
+  document.getElementById("setupPopup").style.display = "none";
+}
+
+/* CLICK OUTSIDE CLOSE */
+window.onclick = function(e) {
+  const popup = document.getElementById("setupPopup");
+  if (e.target === popup) {
+    popup.style.display = "none";
+  }
+};
+function showDetails(text, price) {
+  document.getElementById("detailText").innerText = text;
+  document.getElementById("detailPrice").innerText = price;
+  document.getElementById("detailBox").style.display = "block";
+}
+
+function closeDetails() {
+  document.getElementById("detailBox").style.display = "none";
+}
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("active");
+}
