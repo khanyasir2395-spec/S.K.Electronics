@@ -311,3 +311,24 @@ function closeDetails() {
 function toggleMenu() {
   document.getElementById("mobileMenu").classList.toggle("active");
 }
+
+function showLang(lang, btn) {
+
+  // hide all language blocks
+  document.querySelectorAll('.about-text-block').forEach(el => {
+    el.style.display = 'none';
+  });
+
+  // show selected language
+  document.querySelectorAll('.about-text-block.' + lang).forEach(el => {
+    el.style.display = 'block';
+  });
+
+  // remove active class from all buttons
+  document.querySelectorAll('.lang-switch button').forEach(b => {
+    b.classList.remove('active');
+  });
+
+  // add active class to clicked button
+  btn.classList.add('active');
+}
